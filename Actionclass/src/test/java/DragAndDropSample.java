@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +18,8 @@ public class DragAndDropSample {
 	driver.manage().deleteAllCookies();
 	
 	driver.get("https://www.w3schools.com/html/html5_draganddrop.asp");
+	driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	
 	WebElement pickuppoint = driver.findElement(By.xpath("//p[text()='Drag the W3Schools image into the rectangle.']//preceding-sibling::div[@id='div2']//preceding-sibling::div[@id='div1']//img"));
 	WebElement DropPoint = driver.findElement(By.xpath("//p[text()='Drag the W3Schools image into the rectangle.']//preceding-sibling::div[@id='div2']"));
